@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import CalculateTime from "./CalculateTime";
-import SliderCarosel from "./SliderCarosel";
-import Skeleton from "./Skeleton";
+import CalculateTime from "../UI/CalculateTime";
+import SliderCarosel from "../UI/SliderCarosel";
+import Skeleton from "../UI/Skeleton";
 
 const NewItems = () => {
   const [newItems, setNewItems] = useState([]);
