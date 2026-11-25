@@ -5,7 +5,6 @@ import NftItemSkeleton from "../NftItemSkeleton";
 import axios from "axios";
 
 const ExploreItems = ({ exploreData, setExploreData, loading, setLoading }) => {
-  const [tempExploreData, setTempExploreData] = useState(exploreData);
   const [visibleData, setVisibleData] = useState(8);
 
   function updateSlice() {
