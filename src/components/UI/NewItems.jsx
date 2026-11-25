@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import CalculateTime from "../UI/CalculateTime";
-import SliderCarosel from "../UI/SliderCarosel";
-import Skeleton from "../UI/Skeleton";
+import CalculateTime from "./CalculateTime";
+import SliderCarosel from "./SliderCarosel";
+import Skeleton from "./Skeleton";
 
 const NewItems = () => {
   const [newItems, setNewItems] = useState([]);
@@ -144,7 +144,7 @@ const NewItems = () => {
                           <Link to="/item-details">
                             <h4>{item.title}</h4>
                           </Link>
-                          <div className="nft__item_price">{item.price}ETH</div>
+                          <div className="nft__item_price">{item.price} ETH</div>
                           <div className="nft__item_like">
                             <i className="fa fa-heart"></i>
                             <span>{item.likes}</span>
