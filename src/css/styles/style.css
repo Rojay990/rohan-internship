@@ -16768,10 +16768,10 @@ img {
   font-size: 16px;
 }
 
-/* Hot Collections navigation arrows */
+/* Reusable carousel styles */
 
-#section-collections .slick-prev,
-#section-collections .slick-next {
+.custom-slider .slick-prev,
+.custom-slider .slick-next {
   width: 45px;
   height: 45px;
   background: #fff;
@@ -16780,36 +16780,36 @@ img {
   z-index: 10;
 }
 
-#section-collections .slick-prev {
+.custom-slider .slick-prev {
   left: -20px;
 }
 
-#section-collections .slick-next {
+.custom-slider .slick-next {
   right: -20px;
 }
 
-#section-collections .slick-prev,
-#section-collections .slick-next {
+.custom-slider .slick-prev,
+.custom-slider .slick-next {
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
 
-#section-collections .slick-prev:hover,
-#section-collections .slick-next:hover,
-#section-collections .slick-prev:focus,
-#section-collections .slick-next:focus {
+.custom-slider .slick-prev:hover,
+.custom-slider .slick-next:hover,
+.custom-slider .slick-prev:focus,
+.custom-slider .slick-next:focus {
   background: #fff;
 }
 
-#section-collections .slick-prev:hover,
-#section-collections .slick-next:hover {
+.custom-slider .slick-prev:hover,
+.custom-slider .slick-next:hover {
   box-shadow: rgba(0, 0, 0, 0.2) 5px 5px 30px 0px;
   transform: translateY(-50%) scale(1.1);
 }
 
-#section-collections .slick-prev::before,
-#section-collections .slick-next::before {
+.custom-slider .slick-prev::before,
+.custom-slider .slick-next::before {
   font-family: Arial, sans-serif !important;
   font-size: 28px;
   color: #111;
@@ -16817,15 +16817,23 @@ img {
   line-height: 0.4;
 }
 
-#section-collections .slick-prev::before {
+.custom-slider .slick-prev::before {
   content: "‹";
 }
 
-#section-collections .slick-next::before {
+.custom-slider .slick-next::before {
   content: "›";
 }
 
-#section-collections .hot-slide {
+.custom-slider .slick-slide > div {
   padding: 0 6px;
   box-sizing: border-box;
+}
+
+/* Mobile devices */
+@media (max-width: 767px) {
+  .custom-slider .nft__item_wrap {
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
 }
