@@ -13,9 +13,6 @@ const ExploreItems = ({ exploreData, setExploreData, loading, setLoading }) => {
   }
 
   async function filter(filterValue) {
-    if (filterValue === "Default") {
-      setExploreData(tempExploreData);
-    } else {
       setLoading(true);
       try {
         const { data } = await axios.get(
@@ -27,7 +24,6 @@ const ExploreItems = ({ exploreData, setExploreData, loading, setLoading }) => {
       } finally {
         setLoading(false);
       }
-    }
   }
 
   return (
