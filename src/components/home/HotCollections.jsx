@@ -1,27 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Skeleton from "../UI/Skeleton";
+import SliderCarosel from "../UI/SliderCarosel";
 
 const HotCollections = () => {
   const [hotCollect, setHotCollect] = useState([]);
-  const [slidesToShow, setSlidesToShow] = useState(getSlidesToShow);
   const [loading, setLoading] = useState(true);
-
-  function getSlidesToShow() {
-    if (typeof window === "undefined") return 4;
-
-    const width = window.innerWidth;
-
-    if (width < 768) return 1;
-    if (width < 992) return 2;
-    if (width < 1200) return 3;
-
-    return 4;
-  }
 
   async function getHotCollections() {
     try {
@@ -29,7 +14,6 @@ const HotCollections = () => {
       const { data } = await axios.get(
         `https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections`,
       );
-
       setHotCollect(data);
     } catch (error) {
       console.error("Failed to load collections:", error);
@@ -38,32 +22,10 @@ const HotCollections = () => {
     }
   }
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: slidesToShow,
-    slidesToScroll: 1,
-    arrows: true,
-  };
-
   useEffect(() => {
     getHotCollections();
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setSlidesToShow(getSlidesToShow());
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
   return (
     <section id="section-collections" className="no-bottom">
       <div className="container">
@@ -75,7 +37,7 @@ const HotCollections = () => {
             </div>
           </div>
           <div className="col-lg-12">
-            <Slider {...settings} className="hot-collections-slider">
+            <SliderCarosel>
               {loading
                 ? new Array(6).fill(0).map((_, index) => (
                     <div className="hot-slide" key={index}>
@@ -136,7 +98,7 @@ const HotCollections = () => {
                       </div>
                     </div>
                   ))}
-            </Slider>
+            </SliderCarosel>
           </div>
         </div>
       </div>
