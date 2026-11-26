@@ -7,7 +7,8 @@ import NftItemSkeleton from "../NftItemSkeleton";
 
 const AuthorItems = ({
   nftCollections = [],
-  AuthorImageCollection,
+  authorImageCollection,
+  authorId,
   loading,
 }) => {
   console.log(nftCollections);
@@ -31,7 +32,7 @@ const AuthorItems = ({
                   key={collection.id}
                 >
                   <NftItem
-                    item={{ ...collection, authorImage: AuthorImageCollection }}
+                    item={{ ...collection, authorImage: authorImageCollection, authorId: authorId }}
                   />
                 </div>
               ))}

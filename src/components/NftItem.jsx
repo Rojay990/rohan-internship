@@ -3,6 +3,7 @@ import CalculateTime from "./UI/CalculateTime";
 import { Link } from "react-router-dom";
 
 const NftItem = ({ item }) => {
+  console.log(item)
   return (
     <div className="nft__item">
       <div className="author_list_pp">
