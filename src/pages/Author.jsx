@@ -27,7 +27,6 @@ const Author = () => {
         `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`,
       );
       setAuthorData(data);
-      console.log(data);
     } catch (error) {
       console.error("Failed to load Author Information : ", error);
     } finally {
@@ -124,7 +123,8 @@ const Author = () => {
                   ) : (
                     <AuthorItems
                       nftCollections={authorData.nftCollection}
-                      AuthorImageCollection={authorData.authorImage}
+                      authorImageCollection={authorData.authorImage}
+                      authorId={authorData.authorId}
                     />
                   )}
                 </div>
