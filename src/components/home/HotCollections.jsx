@@ -7,7 +7,6 @@ import SliderCarosel from "../UI/SliderCarosel";
 const HotCollections = () => {
   const [hotCollect, setHotCollect] = useState([]);
   const [loading, setLoading] = useState(true);
-
   async function getHotCollections() {
     try {
       setLoading(true);
@@ -15,6 +14,7 @@ const HotCollections = () => {
         `https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections`,
       );
       setHotCollect(data);
+      console.log(data)
     } catch (error) {
       console.error("Failed to load collections:", error);
     } finally {
@@ -71,7 +71,7 @@ const HotCollections = () => {
                     <div className="hot-slide" key={data.id}>
                       <div className="nft_coll">
                         <div className="nft_wrap">
-                          <Link to="/item-details">
+                          <Link to={`/item-details/${data.nftId}`}>
                             <img
                               src={data.nftImage}
                               className="lazy img-fluid"
