@@ -11,7 +11,6 @@ const AuthorItems = ({
   authorId,
   loading,
 }) => {
-  console.log(nftCollections);
 
   return (
     <div className="de_tab_content">
