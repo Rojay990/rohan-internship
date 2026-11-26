@@ -13,7 +13,6 @@ const TopSellers = () => {
         "https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers",
       );
       setTopSeller(data);
-      console.log(data);
     } catch (error) {
       console.error("Failed to load New Items: ", error);
     } finally {
@@ -62,7 +61,7 @@ const TopSellers = () => {
                 : topSeller.map((item) => (
                     <li key={item.id}>
                       <div className="author_list_pp">
-                        <Link to="/author">
+                        <Link to={`/author/${item.authorId}`}>
                           <img
                             className="lazy pp-author"
                             src={item.authorImage}
