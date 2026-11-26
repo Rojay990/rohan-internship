@@ -20,21 +20,22 @@ const Author = () => {
       setFollow(true);
     }
   }
-  async function getAuthorInfo() {
-    try {
-      const { data } = await axios.get(
-        `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`,
-      );
-      setAuthorData(data);
-    } catch (error) {
-      console.error("Failed to load Author Information : ", error);
-    } finally {
-      setLoading(false);
-    }
-  }
   useEffect(() => {
+    async function getAuthorInfo() {
+      try {
+        const { data } = await axios.get(
+          `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`,
+        );
+        setAuthorData(data);
+      } catch (error) {
+        console.error("Failed to load Author Information : ", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
     getAuthorInfo();
-  }, []);
+  }, [authorId]);
   return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">

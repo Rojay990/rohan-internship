@@ -9,22 +9,22 @@ const ItemDetails = () => {
   const [nftData, setNftData] = useState({});
   const [loading, setLoading] = useState(true);
 
-  async function getItemData() {
-    try {
-      const { data } = await axios.get(
-        `https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${nftId}`,
-      );
-      setNftData(data);
-    } catch (error) {
-      console.error("Failed to load Item Data : ", error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
   useEffect(() => {
+    async function getItemData() {
+      try {
+        const { data } = await axios.get(
+          `https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${nftId}`,
+        );
+        setNftData(data);
+      } catch (error) {
+        console.error("Failed to load Item Data : ", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
     getItemData();
-  }, []);
+  }, [nftId]);
 
   return (
     <div id="wrapper">
