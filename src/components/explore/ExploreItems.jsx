@@ -61,7 +61,7 @@ const ExploreItems = ({ exploreData, setExploreData, loading, setLoading }) => {
           ))}
 
       {!loading && exploreData.length > visibleData && (
-        <div className="col-md-12 text-center">
+        <div className="col-md-12 text-center" data-aos="fade-up" data-aos-duration="500">
           <Link
             to=""
             id="loadmore"
